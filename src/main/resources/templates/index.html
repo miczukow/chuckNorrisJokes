@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{css/index.css}"/>
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
+    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+    <title>Chuck Norris Jokes</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Welcome!</h1>
+        <p>Enjoy your fresh, new joke.</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4" style="visibility: hidden">
+            </div>
+            <div class="col-sm-4">
+                <h3>Click Chuck's head for next joke</h3>
+                <p th:text="${joke.value}"></p>
+                <div>
+                    <a th:href="@{/}" style="align-content: center">
+                        <img th:src="${joke.icon_url}" alt="Chuck Norris Icon" onclick="move()">
+                    </a>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                </div>
+                <button class="accordion">Original Json</button>
+                <div class="panel">
+                    <p>JSON</p>
+                </div>
+                <button class="accordion">Joke class object from Json</button>
+                <div class="panel">
+                    <p th:text="${toString}"></p>
+                </div>
+            </div>
+            <div class="col-sm-4" style="visibility: hidden">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.on('load', toggleAccordion());
+    </script>
+
+</body>
+</html>

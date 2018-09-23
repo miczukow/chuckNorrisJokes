@@ -24,6 +24,6 @@ public class Joke {
                 ", id='" + id + '\'' +
                 ", url=" + url +
                 ", value='" + value + '\'' +
-                '}';
+                "}";
     }
 }

@@ -29,6 +29,7 @@ public class FetchJokeService {
         boolean repeat = false;
         int repeatCount = 0;
 
+//        LOG.setUseParentHandlers(false);
         do {
             try {
                 joke = new Gson().fromJson(getJsonFromSource(), Joke.class);
