@@ -37,9 +37,6 @@ public class FetchJokeService {
             } catch (IOException e) {
                 LOG.log(Level.INFO, "IOException caught: ", e);
                 repeatCount++;
-            } catch (JsonSyntaxException e) {
-                LOG.log(Level.INFO, "JsonSyntaxException caught: ", e);
-                repeatCount++;
             }
         } while (!repeat && repeatCount < 3);
 
@@ -63,5 +60,9 @@ public class FetchJokeService {
         in.close();
         connection.disconnect();
         return result;
+    }
+
+    public Set<String> getJokeIds() {
+        return jokeIds;
     }
 }
