@@ -2,15 +2,24 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{css/index.css}">
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
+    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
     <title>Something went wrong!</title>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div>
+        <div class="col-sm-4" style="visibility: hidden"></div>
+        <div class="col-sm-4">
             <h1>Ups... something went wrong.</h1>
             <h2><a th:href="@{/}">Try again</a></h2>
         </div>
+        <div class="col-sm-4" style="visibility: hidden"></div>
     </div>
 </div>
 </body>
