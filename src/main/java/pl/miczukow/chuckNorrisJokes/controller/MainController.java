@@ -22,7 +22,7 @@ public class MainController {
         Optional<Joke> joke = fetchJokeService.getJoke();
         if (joke.isPresent()) {
             model.addAttribute("joke", joke.get());
-            model.addAttribute("count", fetchJokeService.getJokeIds().size());
+            model.addAttribute("count", fetchJokeService.getNumberOfJokes());
             return "/index";
         } else
             return "/error";

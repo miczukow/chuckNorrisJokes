@@ -41,7 +41,6 @@ public class FetchJokeService {
         } while (!repeat && repeatCount < 3);
 
         return Optional.ofNullable(joke);
-
     }
 
     private String getJsonFromSource() throws IOException {
@@ -62,7 +61,7 @@ public class FetchJokeService {
         return result;
     }
 
-    public Set<String> getJokeIds() {
-        return jokeIds;
+    public int getNumberOfJokes() {
+        return jokeIds.size();
     }
 }

@@ -7,7 +7,6 @@
     <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
 
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/main.js}"></script>
 
@@ -23,7 +22,7 @@
         <div class="row">
             <div class="col-sm-4" style="visibility: hidden">
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <h3></h3>
                 <blockquote>
                     <p th:text="${joke.value}"></p>
@@ -33,13 +32,13 @@
                     <a th:href="@{/}">
                         <img th:src="${joke.icon_url}" alt="Chuck Norris Head Icon" onclick="move()">
                     </a>
-                </div>
+                </div><br><br>
                 <div>
                     <div id="myProgress">
                         <div id="myBar"></div>
                     </div>
                 </div>
-                <button class="accordion">Number of jokes read since last server restart</button>
+                <button class="accordion">Number of jokes read</button>
                 <div class="panel">
                     <div class="row text-center" >
                         <br><label th:text="${count}"></label>
@@ -68,30 +67,34 @@
         </div>
     </div>
 
-    <button data-toggle="modal" data-target="#warning"></button>
+    <!--<button data-toggle="modal" data-target="#warning"></button>-->
 
-    <div id="warning" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade bd-example-modal-lg">
-        <div role="document" class="modal-dialog modal-dialog-centered modal-lg">
+    <div id="warning" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade bd-example-modal-lg"><br><br><br><br>
+        <div role="document" class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
                     <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                 </div>
-                <div class="modal-body p-4 p-lg-5">
+                <div class="modal-body">
                     <form th:action="@{/}" method="get" class="login-form text-center">
                         <div class="form-group mb-4">
-                            <h1 style="color: red">Explicit content!<br><br>
-                            <small>Are you sure you can handle it?</small>
+                            <h1 style="color: red"><br><br>Explicit content!<br><br>
+                            <br><br><small>Are you sure you can handle it?</small><br><br>
                             </h1>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <div class="col-md-6">
-                                <input type="submit" value="NO!!!" class="btn btn-primary">
+                                <input type="submit" value="No! Take me out" class="btn btn-primary">
                             </div>
                             <div class="col-md-6">
-                                <button data-dismiss="modal" class="btn btn-primary">I'm not a sissy!</button>
+                                <button data-dismiss="modal" class="btn btn-primary">Sure! I'm not a sissy!</button>
                             </div>
-                        </div>
+                        </div><br><br>
                     </form>
+                        <div class="row"><br><br></div>
+                </div>
+                <div class="modal-footer">
+                    <br><br>
                 </div>
             </div>
         </div>
