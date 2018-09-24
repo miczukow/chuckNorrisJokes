@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{css/index.css}">
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
+    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
+
+    <title>Chuck Norris Jokes</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Welcome!</h1>
+        <p>Enjoy your fresh, new joke.</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4" style="visibility: hidden">
+            </div>
+            <div class="col-sm-4">
+                <h3></h3>
+                <blockquote>
+                    <p th:text="${joke.value}"></p>
+                    <footer>Click Chuck's head for next joke</footer>
+                </blockquote>
+                <div class="row text-center">
+                    <a th:href="@{/}">
+                        <img th:src="${joke.icon_url}" alt="Chuck Norris Head Icon" onclick="move()">
+                    </a>
+                </div><br><br>
+                <div>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                </div>
+                <button class="accordion">Number of jokes read</button>
+                <div class="panel">
+                    <div class="row text-center" >
+                        <br><label th:text="${count}"></label>
+                    </div>
+                </div>
+                <button class="accordion">Joke class object from Json</button>
+                <div class="panel">
+                    <div th:if="${joke.category}">
+                        <label>Category: <span class="caret"></span></label>
+                        <ul th:each="cat : ${joke.category}">
+                            <li th:text="${cat}"></li>
+                        </ul>
+                    </div>
+                    <div th:unless="${joke.category}">
+                        <label>Category: </label>
+                        <p>null</p>
+                    </div>
+                    <label>Icon URL:</label><br><a th:href="${joke.icon_url}" th:text="${joke.icon_url}"></a><br>
+                    <label>Id: </label><br><p th:text="${joke.id}"></p>
+                    <label>URL:</label><br><a th:href="${joke.url}" th:text="${joke.url}"></a><br>
+                    <label>Value:</label><br><p th:text="${joke.value}"></p><br>
+                </div>
+            </div>
+            <div class="col-sm-4" style="visibility: hidden">
+            </div>
+        </div>
+    </div>
+
+    <!--<button data-toggle="modal" data-target="#warning"></button>-->
+
+    <div id="warning" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade bd-example-modal-lg"><br><br><br><br>
+        <div role="document" class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/}" method="get" class="login-form text-center">
+                        <div class="form-group mb-4">
+                            <h1 style="color: red"><br><br>Explicit content!<br><br>
+                            <br><br><small>Are you sure you can handle it?</small><br><br>
+                            </h1>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="col-md-6">
+                                <input type="submit" value="No! Take me out" class="btn btn-primary">
+                            </div>
+                            <div class="col-md-6">
+                                <button data-dismiss="modal" class="btn btn-primary">Sure! I'm not a sissy!</button>
+                            </div>
+                        </div><br><br>
+                    </form>
+                        <div class="row"><br><br></div>
+                </div>
+                <div class="modal-footer">
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(window).on('load', toggleAccordion());
+    </script>
+    <script th:if="${joke.category}">
+        $('#warning').modal();
+    </script>
+
+</body>
+</html>

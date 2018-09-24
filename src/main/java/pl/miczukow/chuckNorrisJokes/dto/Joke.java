@@ -5,12 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.net.URL;
+import java.util.Arrays;
 
 @NoArgsConstructor
 @Setter
 @Getter
 public class Joke {
-    String category;
+    String[] category;
     URL icon_url;
     String id;
     URL url;
@@ -19,7 +20,7 @@ public class Joke {
     @Override
     public String toString() {
         return "Joke{" +
-                "category='" + category + '\'' +
+                "category=" + Arrays.toString(category) +
                 ", icon_url=" + icon_url +
                 ", id='" + id + '\'' +
                 ", url=" + url +

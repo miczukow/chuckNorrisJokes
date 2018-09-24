@@ -22,28 +22,25 @@ public class FetchJokeService {
 
     private static final String SOURCE = "https://api.chucknorris.io/jokes/random";
     private static final Logger LOG = Logger.getLogger(FetchJokeService.class.getName());
-    private Set<String> jokeId = new HashSet<>();
+    private Set<String> jokeIds = new HashSet<>();
 
     public Optional<Joke> getJoke() {
         Joke joke = null;
         boolean repeat = false;
         int repeatCount = 0;
 
+//        LOG.setUseParentHandlers(false);
         do {
             try {
                 joke = new Gson().fromJson(getJsonFromSource(), Joke.class);
-                repeat = jokeId.add(joke.getId());
+                repeat = jokeIds.add(joke.getId());
             } catch (IOException e) {
                 LOG.log(Level.INFO, "IOException caught: ", e);
-                repeatCount++;
-            } catch (JsonSyntaxException e) {
-                LOG.log(Level.INFO, "JsonSyntaxException caught: ", e);
                 repeatCount++;
             }
         } while (!repeat && repeatCount < 3);
 
         return Optional.ofNullable(joke);
-
     }
 
     private String getJsonFromSource() throws IOException {
@@ -62,5 +59,9 @@ public class FetchJokeService {
         in.close();
         connection.disconnect();
         return result;
+    }
+
+    public int getNumberOfJokes() {
+        return jokeIds.size();
     }
 }
