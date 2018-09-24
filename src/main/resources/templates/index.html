@@ -103,8 +103,13 @@
     <script>
         $(window).on('load', toggleAccordion());
     </script>
-    <script th:if="${joke.category}">
-        $('#warning').modal();
+    <script th:if="${joke.category}" th:inline="javascript">
+        /*<![CDATA[*/
+            var category = /*[[${joke.category}]]*/ 'default';
+            if (category.includes('explicit')) {
+                $('#warning').modal();
+            }
+        /*]]>*/
     </script>
 
 </body>
