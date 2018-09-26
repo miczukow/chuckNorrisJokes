@@ -28,7 +28,7 @@ function toggleAccordion() {
             var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
                 panel.style.display = "none";
-                scrollTo(document.getElementsByTagName("img"));
+                scrollTo(document.getElementsByTagName('img'));
             } else {
                 panel.style.display = "block";
                 scrollTo(panel);
@@ -36,7 +36,7 @@ function toggleAccordion() {
 
             /* Scrolling animation */
             function scrollTo(target) {
-                $('html, body').animate({
+                $('html, body').stop().animate({
                     scrollTop: $(target).offset().top
                 }, 1000);
             }
