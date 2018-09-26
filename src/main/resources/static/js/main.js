@@ -28,10 +28,16 @@ function toggleAccordion() {
             var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
                 panel.style.display = "none";
+                scrollTo(document.getElementsByTagName("img"));
             } else {
                 panel.style.display = "block";
+                scrollTo(panel);
+            }
+
+            /* Scrolling animation */
+            function scrollTo(target) {
                 $('html, body').animate({
-                    scrollTop: $(acc).offset().top
+                    scrollTop: $(target).offset().top
                 }, 1000);
             }
         });
