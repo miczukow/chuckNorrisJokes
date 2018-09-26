@@ -30,6 +30,9 @@ function toggleAccordion() {
                 panel.style.display = "none";
             } else {
                 panel.style.display = "block";
+                $('html, body').animate({
+                    scrollTop: $(acc).offset().top
+                }, 1000);
             }
         });
     }

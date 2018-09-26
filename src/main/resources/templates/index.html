@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{css/index.css}">
     <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{css/index.css}">
     <link rel="icon" th:href="@{/img/favicon.png}">
 
 
@@ -61,12 +61,15 @@
                     <label>Icon URL:</label><br><a th:href="${joke.icon_url}" th:text="${joke.icon_url}"></a><br>
                     <label>Id: </label><br><p th:text="${joke.id}"></p>
                     <label>URL:</label><br><a th:href="${joke.url}" th:text="${joke.url}"></a><br>
-                    <label>Value:</label><br><p th:text="${joke.value}"></p><br>
+                    <label>Value:</label><br><p th:text="${joke.value}"></p><br><br><br>
                 </div>
             </div>
             <div class="col-sm-4" style="visibility: hidden">
             </div>
         </div>
+    </div>
+    <div class="footer">
+        © 2018 Copyright: <a href="https://github.com/miczukow/chuckNorrisJokes"> Michał Żukowski</a>
     </div>
 
     <!--<button data-toggle="modal" data-target="#warning"></button>-->
